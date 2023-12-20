@@ -1,8 +1,19 @@
 Config = Config or {} -- Don't touch
 
--- IMPORTANT: xSound is a required dependancy for this script to work
--- Please download and install the latest version from the link below:
+-- =========================IMPORTANT==========================
+-- xSound is a required dependancy for this script to work
+-- Please download and add the latest version to your server from from the link below:
 -- https://github.com/Xogy/xsound/releases/latest
+
+-- sv_config.lua must be configured with a YouTube API key (free) in order for the script to work
+-- Text tutorial is available in sv_config.lua
+
+-- Full YouTube API key and custom radio images tutorial can be found on our channel:
+-- https://www.youtube.com/@PonziScripts 
+
+-- Please use the FULL youtube.com link for every video & playlist
+-- Shortform youtu.be URLs are not supported
+-- ============================================================
 
 -- ====================Available Radio List====================
 -- "RADIO_01_CLASS_ROCK",              -- Los Santos Rock Radio
@@ -85,8 +96,9 @@ Config.RadioStations = { -- List of radio stations to supersede (override)
         },
         videos = {}, -- Individual video links
 		-- Empty list if no individual videos for this station
-        volume = 0.2, -- 0.2 is a similar volume to the default stations for most videos
+        volume = 1.0, -- 1.0 is a similar volume to the default stations for most videos
 		-- Volume is also reactive to user's music settings
+		-- This value is a multiplier of the base volume and can be turned up or down
         name = 'Copyright Free FM'
     },
     {
@@ -96,9 +108,15 @@ Config.RadioStations = { -- List of radio stations to supersede (override)
         videos = {
             'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
         },
-        volume = 0.2,
+        volume = 1.0,
         name = 'Rolling Radio'
     },
 	-- Stations support playlists, videos and a combination of both
+}
+
+Config.DisabledStations = { -- List of GTA stations to remove from the radio wheel
+    -- "RADIO_01_CLASS_ROCK",
+    -- "RADIO_20_THELAB",
+    -- "RADIO_21_DLC_XM17",
 }
 -- ============================================================
