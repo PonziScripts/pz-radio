@@ -50,14 +50,19 @@ Config.Debug = false -- Enable or disable printing of processes
 
 Config.CheckUpdates = true -- Enable or disable new update checks
 
-Config.StationTimer = 200 -- Amount of ms in between checks to update custom radio status
+Config.StationTimer = 100 -- Amount of ms in between checks to update custom radio status
 -- Less value can increase smoothness but can slight increase client resource usage
--- A value of 200 (5 checks per second) by default reduces usage to 0.00ms-0.01ms on average 
+-- A value of 100 (10 checks per second) by default reduces usage to 0.00ms-0.01ms on average 
 -- with no percieved additional wait time compared to a value of 0 
+
+Config.VoiceChatRadioDistance = 10.0 -- Set how far away to check for talking players to activate radio volume ducking
+-- Set to 0 to disable
 -- ============================================================
 
 -- =================Custom Radio Display Text==================
+-- Enable only ONE of these at a time
 Config.ShowCustomRadioText = true -- Overlay the GTA currently playing with song details
+Config.ShowCustomRadioTextBeta = false -- More similar to native GTA but still in development
 
 -- List of words to detect inside () or []
 -- These portion will be ommitted from song title.
@@ -77,11 +82,14 @@ Config.TitleCleanUpWordList = {
     "extended",
     -- Add more words/phrases as needed
 }
-
 -- Patterns to match
 Config.TitleCleanUpMatchList = {
     "%[(.-)%]", --  [Official Video]
     "%((.-)%)", --  (Official Video)
+}
+
+Config.RemoveStringsFromTitles = {
+    -- "Example Words",
 }
 -- ============================================================
 
@@ -112,6 +120,12 @@ Config.RadioStations = { -- List of radio stations to supersede (override)
         name = 'Rolling Radio'
     },
 	-- Stations support playlists, videos and a combination of both
+    {
+        supersede = 'RADIO_04_PUNK',
+        web = "https://naxos.cdnstream.com/1373_128", -- Web radio stream
+        volume = 1.0,
+        name = 'Edamame Hits'
+    },
 }
 
 Config.DisabledStations = { -- List of GTA stations to remove from the radio wheel
